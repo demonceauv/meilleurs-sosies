@@ -963,6 +963,10 @@
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
+// Fix iOS Safari: buttons without explicit type are treated as form submits
+// which causes a full page reload on click. Force type="button" on all buttons.
+document.querySelectorAll('button:not([type])').forEach(btn => btn.type = 'button');
+
 // ============================================
 // CONFIG
 // ============================================
