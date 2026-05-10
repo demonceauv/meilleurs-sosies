@@ -1304,7 +1304,7 @@ async function renderDetail() {
         <input class="comment-input" id="commentInput" placeholder="Balance ton avis…" maxlength="280">
         <button class="comment-send" id="commentSendBtn">Envoi</button>
       </div>
-      ${p.comments.length === 0 ? '<div class="empty"><div class="text">Personne n\\'ose encore.</div></div>' : ''}
+      ${p.comments.length === 0 ? '<div class="empty"><div class="text">Personne n\'ose encore.</div></div>' : ''}
       ${[...p.comments].reverse().map(c => {
         const author = state.profilesById[c.author_id] || { pseudo: '???', id: c.author_id };
         const authorVote = p.votes.find(v => v.voter_id === c.author_id);
@@ -1400,7 +1400,7 @@ async function renderHof() {
       </div>`).join('');
 
   $('hofControversy').innerHTML = ctrl.length === 0
-    ? '<div class="empty"><div class="text">Tout le monde s\\'entend pour l\\'instant.</div></div>'
+    ? '<div class="empty"><div class="text">Tout le monde s\'entend pour l\'instant.</div></div>'
     : ctrl.map(item => `
       <div class="ranking-card" data-id="${item.p.id}" style="cursor:pointer;">
         <div class="rank-num gold">!</div>
