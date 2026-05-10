@@ -34,9 +34,12 @@
   /* ==== LOGIN ==== */
   .login {
     height: 100vh;
+    height: 100dvh;
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     padding: 24px;
+    padding-top: calc(24px + env(safe-area-inset-top));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom));
     max-width: 480px; margin: 0 auto;
   }
   .login.hidden { display: none; }
@@ -111,6 +114,7 @@
   .app {
     display: flex; flex-direction: column;
     height: 100vh;
+    height: 100dvh;
     max-width: 480px; margin: 0 auto;
     background: var(--cream);
     position: relative; overflow: hidden;
@@ -119,6 +123,7 @@
 
   .masthead {
     padding: 18px 20px 14px;
+    padding-top: calc(18px + env(safe-area-inset-top));
     border-bottom: 2px solid var(--ink);
     background: var(--cream);
     flex-shrink: 0; position: relative;
@@ -151,7 +156,7 @@
     flex: 1; overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 90px;
+    padding-bottom: calc(90px + env(safe-area-inset-bottom));
   }
   .screen { display: none; padding: 16px; }
   .screen.active { display: block; animation: fadeIn 0.25s ease; }
@@ -721,7 +726,10 @@
     border-top: 2px solid var(--ink);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    height: 70px; z-index: 10;
+    height: 70px;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-sizing: content-box;
+    z-index: 10;
   }
   .nav-btn {
     background: none; border: none;
@@ -813,10 +821,14 @@
 
   .hidden { display: none !important; }
 
-  @media (max-height: 700px) {
-    .masthead h1 { font-size: 32px; }
+  @media (max-height: 760px) {
+    .masthead { padding-top: calc(10px + env(safe-area-inset-top)); padding-bottom: 10px; }
+    .masthead h1 { font-size: 30px; }
     .masthead-sub { display: none; }
+    .masthead-top { font-size: 9px; margin-bottom: 4px; }
     .login-logo h1 { font-size: 42px; }
+    .login-logo { margin-bottom: 16px; }
+    .login-card { padding: 18px 16px; }
   }
 </style>
 </head>
